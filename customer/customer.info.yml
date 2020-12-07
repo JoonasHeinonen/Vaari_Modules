@@ -1,0 +1,6 @@
+name: Vaari Customer Module
+description: Creates and displays customers for the CRM system.
+package: Vaari Modules
+
+type: module
+core: 8.x

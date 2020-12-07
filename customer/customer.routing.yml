@@ -1,0 +1,7 @@
+customer.index_page:
+  path: '/customer/display_customers'
+  defaults:
+    _controller: '\Drupal\customer\Controller\IndexController::showIndex'
+    _title: 'Customers'
+  requirements:
+    _permission: 'access content'
