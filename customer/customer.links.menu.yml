@@ -1,0 +1,11 @@
+customer.display_customers:
+  title: 'Display All Customers'
+  route_name: customer.index_page
+  weight: 100
+  menu_name: tools
+
+customer.submit_customer:
+  title: 'Submit a New Customer'
+  route_name: customer.customer_form
+  weight: 100
+  menu_name: tools

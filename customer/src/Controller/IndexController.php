@@ -18,7 +18,7 @@ class IndexController {
     public function showIndex() {
         $element = array(
             '#type' => 'markup',
-            '#markup' => 'Hello world!',
+            '#markup' => 'Hello homo!',
         );
 
         return $element;

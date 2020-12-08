@@ -1,7 +1,17 @@
 customer.index_page:
   path: '/customer/display_customers'
+  menu_name: main
   defaults:
     _controller: '\Drupal\customer\Controller\IndexController::showIndex'
     _title: 'Customers'
+  requirements:
+    _permission: 'access content'
+
+customer.customer_form:
+  path: '/customer/submit_customer'
+  menu_name: main
+  defaults:
+    _form: 'Drupal\customer\Form\CustomerForm'
+    _title: 'Customer Form'
   requirements:
     _permission: 'access content'
