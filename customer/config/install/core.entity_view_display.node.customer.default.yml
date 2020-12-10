@@ -1,0 +1,40 @@
+# core.entity_view_display.node.customer.default.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.field.node.customer.field_customer_name
+        - field.field.node.customer.field_customer_description
+        - field.field.node.customer.field_customer_email
+        - node.type.customer
+    module:
+        - text
+        - user
+id: node.customer.default
+targetEntityType: node
+bundle: customer
+mode: default
+content:
+    field_customer_name:
+        weight: 101
+        label: above
+        type: text_default
+        settings: {  }
+        third_party_settings: {  }
+    field_customer_description:
+        weight: 103
+        label: above
+        settings:
+            link_to_entity: false
+        third_party_settings: {  }
+        type: string
+    field_customer_email:
+        weight: 103
+        label: above
+        settings:
+            link_to_entity: false
+        third_party_settings: {  }
+        type: email_mailto
+    links:
+        weight: 100
+hidden: {  }

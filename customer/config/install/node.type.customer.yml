@@ -1,0 +1,15 @@
+# node.type.customer.yml
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - customer # This is the name of the module we're using for this example
+name: 'Customer'
+type: customer
+description: 'Content type that can be used to provide additional information on <em>customers</em>'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
+# https://www.drupal.org/docs/drupal-apis/entity-api/creating-a-custom-content-type-in-drupal-8#s-foobarconfiginstallnodetypecar-brandyml

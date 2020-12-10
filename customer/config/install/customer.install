@@ -1,0 +1,104 @@
+<?php
+/**
+ * Implements hook_schema().
+ */
+function customer_schema() {
+    $schema['customer'] = array(
+        'description' => 'Stores all the data submitted about customers to the table according to a schema.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for the customer.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'customer_name' => array(
+                'description' => 'The name for the customer.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'customer_email' => array(
+                'description' => 'The corresponsive email for the customer.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'customer_legal_entity_type' => array(
+                'description' => 'The legal entity type of the customer.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'Tmi.',
+            ),
+            'customer_description' => array(
+                'description' => 'A short description of the company.',
+                'type' => 'varchar',
+                'length' => 255,
+                'default' => '',
+            ),
+            'customer_website' => array(
+                'description' => 'Optional website for the customer.',
+                'type' => 'varchar',
+                'length' => 255,
+                'default' => '',
+            ),
+            'uploading_user' => array(
+                'description' => 'The user who upladed the customer information.',
+                'type' => 'varchar',
+                'length' => 255,
+            )
+        ),
+        'primary key' => array(
+            'id',
+        ),
+    );
+
+    $schema['customer_contact'] = array(
+        'description' => 'Stores all the customer contact data to the tables in the database.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for the customer contact information.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'customer_name' => array(
+                'description' => 'The name for the customer.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'customer_email' => array(
+                'description' => 'The corresponsive email for the customer.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'customer_website' => array(
+                'description' => 'Optional website for the customer.',
+                'type' => 'varchar',
+                'length' => 255,
+                'default' => '',
+            )
+        ),
+        'primary key' => array(
+            'id',
+        ),
+        'foreign keys' => array(
+            'customer_data' => array(
+                'table' => 'customer',
+                'columns' => array(
+                    'customer_name' => 'customer_name',
+                ),
+            ),
+        ),
+    );
+
+    return $schema;
+}
+?>

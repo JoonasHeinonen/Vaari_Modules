@@ -5,7 +5,7 @@ customer.index_page:
     _controller: '\Drupal\customer\Controller\IndexController::showIndex'
     _title: 'Customers'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
 
 customer.customer_form:
   path: '/customer/submit_customer'
@@ -14,4 +14,4 @@ customer.customer_form:
     _form: 'Drupal\customer\Form\CustomerForm'
     _title: 'Customer Form'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'

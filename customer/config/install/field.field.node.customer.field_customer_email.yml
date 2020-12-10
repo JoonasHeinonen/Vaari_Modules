@@ -1,0 +1,22 @@
+# field.field.node.customer.field_customer_email.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_email
+    - node.type.customer
+  module:
+    - text
+id: node.customer.field_customer_email
+field_name: field_customer_email
+entity_type: node
+bundle: customer
+label: 'Customer Email'
+description: 'The contact email of the customer.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: email

@@ -1,0 +1,22 @@
+# field.field.node.customer.field_customer_description.yml
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_description
+    - node.type.customer
+  module:
+    - text
+id: node.customer.field_customer_description
+field_name: field_customer_description
+entity_type: node
+bundle: customer
+label: 'Customer Description'
+description: 'Description for the company and its activities.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

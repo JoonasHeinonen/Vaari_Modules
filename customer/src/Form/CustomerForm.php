@@ -8,9 +8,9 @@
  */
 namespace Drupal\customer\Form;
 
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-
 
 // http://karimboudjema.com/en/drupal/20181013/create-custom-form-form-api-drupal-8
 
@@ -138,15 +138,23 @@ class CustomerForm extends FormBase {
      * {@inheritdoc}
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
+        $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
 
-        $this->messenger->addMessage('customer_name: '.$form_state->getValue('customer_name'));
-        $this->messenger->addMessage('customer_email: '.$form_state->getValue('customer_email'));
-        $this->messenger->addMessage('customer_description: '.$form_state->getValue('customer_description'));
-        $this->messenger->addMessage('customer_website: '.$form_state->getValue('customer_website'));
-    
-        // Redirect to home
-        $form_state->setRedirect('<front>');
-        return;
+        /**
+         * Save the customer to our database.
+         */
+        db_insert('customer')
+          ->fields(array(
+            'customer_name' => $form_state->getValue('customer_name'),
+            'customer_legal_entity_type' => $form_state->getValue('customer_legal_entity_type'),
+            'customer_email' => $form_state->getValue('customer_email'),
+            'customer_description' => $form_state->getValue('customer_description'),
+            'customer_website' => $form_state->getValue('customer_website'),
+            'uploading_user' => $user->getUsername(),
+          ))
+          ->execute();
+
+        drupal_set_message('Customer submission successfull!');
     }
 }
 ?>
