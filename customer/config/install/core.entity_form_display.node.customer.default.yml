@@ -4,8 +4,10 @@ status: true
 dependencies:
     config:
         - field.field.node.customer.field_customer_name
+        - field.field.node.customer.field_customer_legal_entity_type
         - field.field.node.customer.field_customer_description
         - field.field.node.customer.field_customer_email
+        - field.field.node.customer.field_customer_website
         - node.type.customer
     module:
         - text
@@ -16,13 +18,20 @@ bundle: customer
 mode: default
 content:
     field_customer_name:
-        weight: 7
+        weight: 1
         settings:
             rows: 9
             summary_rows: 3
             placeholder: ''
         third_party_settings: {  }
         type: text_textarea_with_summary
+    field_customer_legal_entity_type:
+        weight: 1
+        settings:
+            size: 60
+            placeholder: ''
+        third_party_settings: {  }
+        type: string_textfield
     field_customer_description:
         weight: 6
         settings:
@@ -36,7 +45,14 @@ content:
             size: 60
             placeholder: ''
         third_party_settings: {  }
-        type: email_mailto
+        type: string_textfield
+    field_customer_website:
+        weight: 1
+        settings:
+            size: 60
+            placeholder: ''
+        third_party_settings: {  }
+        type: string_textfield
     links:
         weight: 100
 hidden: {  }

@@ -4,8 +4,10 @@ status: true
 dependencies:
     config:
         - field.field.node.customer.field_customer_name
+        - field.field.node.customer.field_customer_legal_entity_type
         - field.field.node.customer.field_customer_description
         - field.field.node.customer.field_customer_email
+        - field.field.node.customer.field_customer_website
         - node.type.customer
     module:
         - text
@@ -21,6 +23,13 @@ content:
         type: text_default
         settings: {  }
         third_party_settings: {  }
+    field_customer_legal_entity_type:
+        weight: 103
+        label: above
+        settings:
+            link_to_entity: false
+        third_party_settings: {  }
+        type: string
     field_customer_description:
         weight: 103
         label: above
@@ -34,7 +43,14 @@ content:
         settings:
             link_to_entity: false
         third_party_settings: {  }
-        type: email_mailto
+        type: string
+    field_customer_website:
+        weight: 103
+        label: above
+        settings:
+            link_to_entity: false
+        third_party_settings: {  }
+        type: string
     links:
         weight: 100
 hidden: {  }
