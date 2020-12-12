@@ -11,6 +11,7 @@ namespace Drupal\customer\Form;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 // http://karimboudjema.com/en/drupal/20181013/create-custom-form-form-api-drupal-8
 
@@ -139,6 +140,18 @@ class CustomerForm extends FormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+
+        $node = Node::create(['type' => 'customer']);
+        $node->set('title', $form_state->getValue('customer_name'));
+        $node->set('field_customer_name', $form_state->getValue('customer_name'));
+        $node->set('field_customer_legal_entity_type', $form_state->getValue('customer_legal_entity_type'));
+        $node->set('field_customer_email', $form_state->getValue('customer_email'));
+        $node->set('field_customer_description', $form_state->getValue('customer_description'));
+        $node->set('field_customer_website', $form_state->getValue('customer_website'));
+        $node->status = 0;
+        $node->published = TRUE;
+        $node->enforceIsNew();
+        $node->save();
 
         /**
          * Save the customer to our database.

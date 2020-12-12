@@ -24,7 +24,7 @@ content:
             summary_rows: 3
             placeholder: ''
         third_party_settings: {  }
-        type: text_textarea_with_summary
+        type: string_textfield
     field_customer_legal_entity_type:
         weight: 1
         settings:
